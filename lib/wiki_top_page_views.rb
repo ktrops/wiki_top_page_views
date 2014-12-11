@@ -3,7 +3,7 @@ class Find
   def initialize(opts={})
     @lang = opts[:lang] || "en"
     @top_num = opts[:top_num] || 10
-    @file = opts[:file] || "pagecounts-20141101-000000"
+    @file = opts[:file] 
   end
   
   def open_file
@@ -21,22 +21,25 @@ class Find
   	space = lang_array.select {|line| line[4] != nil}
   	lang_array.delete_if {|line| line[4] != nil}
     space.map! {|line| "#{line[0]}, #{line[1] + line[2]}, #{line[3]}, #{line[4]}".split(", ")}
-    lang_array.concat(space)
+    return lang_array.concat(space)
   end
   
   def sort_array
     lang_array = find_lang
     puts "sorting file"
-    lang_array.sort_by {|array| -array[2].to_i}
+    sort_a = lang_array.sort_by {|array| -array[2].to_i}
+    return sort_a
   end
   
   def top_topics
     s_array = sort_array
     puts "getting top #{@top_num}"
-    s_array.first(@top_num).map{ |line| "Topic: " + line[1] + "," + " Visits: " + line[2] }  
+    top_a = s_array.first(@top_num).map!{ |line| "Topic: " + line[1] + "," + " Visits: " + line[2] }
+    return top_a  
    end
    
  end
+ 
  
 
  

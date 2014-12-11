@@ -31,4 +31,5 @@ lang = options[:lang] || "en"
 count = options[:count] || 10
 
 f = Find.new({file: file, lang: lang, count: count})
-f.top_topics 
+p f.top_topics
+ 
