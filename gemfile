@@ -1,6 +1,0 @@
-source :rubygems
-
-group :test
-gem "rspec"
-gem "rake"
-gem "rspec_encoding_matchers"
