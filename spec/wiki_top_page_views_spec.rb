@@ -9,13 +9,14 @@ describe Find do
     
   
   it "should return only English lines" do
-    result = Find.new(file: 'testfile3').find_lang
+    tf = File.open("#{File.dirname(__FILE__)}/testfile3")
+    result = Find.new(file: tf).find_lang
     
     result[0][0].should eq("en")
   end
   
   before do 
-    @find = Find.new(file: 'testfile2', top_num: 15)
+    @find = Find.new(file: '#{File.dirname(__FILE__)}/testfile2")', top_num: 15)
   end
   
   it "should open a file" do
