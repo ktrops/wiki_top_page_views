@@ -15,12 +15,13 @@ describe Find do
     result[0][0].should eq("en")
   end
   
-  before do 
-    @find = Find.new(file: '#{File.dirname(__FILE__)}/testfile2")', top_num: 15)
+  before do
+    tf2 = File.open("#{File.dirname(__FILE__)}/testfile2")
+    @find = Find.new(file: tf2, top_num: 15)
   end
   
   it "should open a file" do
-    File.exists? "testfile2"
+    File.exists? tf2
     
   end
   
