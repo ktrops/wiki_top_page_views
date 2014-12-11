@@ -1,4 +1,5 @@
 home  :: www.rubygems.org/gems/wiki_top_page_views
+
 code  :: www.github.com/ktrops/wiki_top_page_views
 
 
@@ -32,8 +33,10 @@ example:
 
 #Requirements
 
- rspec
+ rspec 
+
  rspec_encoding_matchers
+ 
  rake
 
 #Install
