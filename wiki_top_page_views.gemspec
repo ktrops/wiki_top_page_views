@@ -9,8 +9,7 @@ s.email = 'katrops@gmail.com'
 s.homepage = 'http://rubygems.org/gems/wiki_top_page_views'
 s.licenses = ['MIT']
 s.files = ["lib/wiki_top_page_views.rb"]
-s.add_development_dependency "rspec", '~> 2.0' 
-s.add_development_dependency "rspec_encoding_matchers" '~> 1.0'
-s.add_development_dependency "rake"
+s.add_development_dependency "rspec" 
+s.add_development_dependency "rspec_encoding_matchers" 
 s.executables = ['top_page']
 end
