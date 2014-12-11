@@ -2,8 +2,6 @@
 #require 'uri'
 #URI.parse
 
-#puts "please input language you want:"
-#lang = gets.chomp
 #puts "Enter the number of top wikipedia subjects you want:"
 #top_num = gets.chomp
 class Find
@@ -13,12 +11,16 @@ class Find
     @file = opts[:file] || "pagecounts-20141101-000000"
   end
   
+  def open_file
+    puts "opening file: #{@file}"
+    lang_array = IO.readlines(@file)
+    lang_array.map! {|s| s.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '.') }
+  end
+  
   def find_lang
   	#p_file.set_encoding("utf-8", "utf-8")
-  	lang_array = IO.readlines(@file)
-  	puts "opening file: #{@file}"
-  	
-  	lang_array.map! {|s| s.encode('UTF-8', 'binary', invalid: :replace, undef: :replace, replace: '.') }
+  	lang_array = open_file
+  	puts "finding language #{@lang}"
   	lang_array.select! { |line| /\A#{@lang}/i =~ line}
   	lang_array.map! {|s| s.split(" ")}
   	lang_array.select! {|line| line[1] !~ /^File|^Special/i}
@@ -26,16 +28,12 @@ class Find
   	lang_array.delete_if {|line| line[4] != nil}
     space.map! {|line| "#{line[0]}, #{line[1] + line[2]}, #{line[3]}, #{line[4]}".split(", ")}
     lang_array.concat(space)
-    
-  	
   end
   
   def sort_array
     lang_array = find_lang
     puts "sorting file"
     lang_array.sort_by {|array| -array[2].to_i}
-    
-    
   end
   
   def top_topics

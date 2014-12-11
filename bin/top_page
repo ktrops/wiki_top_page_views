@@ -1,0 +1,2 @@
+#!/usr/bin/env ruby
+require 'wiki_top_page_views'
