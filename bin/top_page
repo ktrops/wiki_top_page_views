@@ -1,2 +1,34 @@
 #!/usr/bin/env ruby
-require 'wiki_top_page_views'
+require_relative "../lib/wiki_top_page_views"
+require 'optparse'
+
+options = {}
+
+opt_parser = OptionParser.new do |opt|
+ 
+
+  opt.on("-f","--file FILE","the file name") do |file|
+    options[:file] = file
+  end
+
+  opt.on("-l","--language LANGUAGE","the two letter abbreviation for the language") do |lang|
+    options[:lang] = lang
+  end
+
+  opt.on("-c","--count COUNT","the count of top subjects") do |count|
+    options[:count] = count
+  end
+
+  opt.on("-h","--help","help") do
+    puts opt_parser
+    exit 
+  end
+end
+
+opt_parser.parse!
+file = options[:file]  
+lang = options[:lang] || "en"
+count = options[:count] || 10
+
+f = Find.new({file: file, lang: lang, count: count})
+f.top_topics 

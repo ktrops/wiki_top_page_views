@@ -1,9 +1,4 @@
-#Encoding: utf-8
-#require 'uri'
-#URI.parse
 
-#puts "Enter the number of top wikipedia subjects you want:"
-#top_num = gets.chomp
 class Find
   def initialize(opts={})
     @lang = opts[:lang] || "en"
@@ -18,7 +13,6 @@ class Find
   end
   
   def find_lang
-  	#p_file.set_encoding("utf-8", "utf-8")
   	lang_array = open_file
   	puts "finding language #{@lang}"
   	lang_array.select! { |line| /\A#{@lang}/i =~ line}
@@ -44,47 +38,5 @@ class Find
    
  end
  
- if $0 == __FILE__
- f = Find.new(file: 'testfile2')
- test = f.top_topics
- #f.sort
- #f.top_10
- end
- 
-   
-   
-   
-   
-=begin
-      array_10 = []
-     i = -1
-    values_a = @s_hash.values
-    while i >= -10
-     v = values_a[i]
-     array_10.push(@s_hash.key(v))
-     i -= 1
-     puts abs(i) + @s_hash.key(v)
-     end
-     
-     	while !p_file.eof == true
-    		line = p_file.readline
-    		if line[0..2] =~ /^@lang /
-    		  puts line
-    		  if line[0..3] =~ /^File/
-    		    next
-    		  else
-    		    @lang_array.push(line.split(' ')[1,2])
-    		  end
-   		end
-     end
 
-      @lang_array
-     
-=end
-
-
-=begin
-p_file.each {|line| @lang_array.push[line]}
-@lang_array.select {|line| line[0] = @lang && line[1] !~ /^File/}
-=end
  
