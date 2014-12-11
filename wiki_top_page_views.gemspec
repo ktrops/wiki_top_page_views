@@ -11,6 +11,6 @@ s.licenses = ['MIT']
 s.files = ["lib/wiki_top_page_views.rb"]
 s.add_development_dependency "rspec"
 s.add_development_dependency "rake" 
-s.add_development_dependency "rspec_encoding_matchers" 
+s.add_development_dependency "rspec-encoding-matchers" 
 s.executables = ['top_page']
 end
