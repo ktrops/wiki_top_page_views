@@ -1,6 +1,6 @@
 require_relative 'spec_helper.rb'
 require_relative '../lib/wiki_top_page_views.rb'
-require 'rspec_encoding_matchers'
+require 'rspec-encoding-matchers'
 
 describe Find do
   
