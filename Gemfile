@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 gem 'rspec'
 gem 'rake'
-gem 'rspec_encoding_matchers'
+gem 'rspec-encoding-matchers', '>=0.1.0'
