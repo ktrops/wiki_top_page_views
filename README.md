@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/ktrops/wiki_top_page_views.svg?branch=master)](https://travis-ci.org/ktrops/wiki_top_page_views)
+
+
 home  :: www.rubygems.org/gems/wiki_top_page_views
 
 code  :: www.github.com/ktrops/wiki_top_page_views
