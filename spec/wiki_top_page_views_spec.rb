@@ -21,7 +21,7 @@ describe Find do
   end
   
   it "should open a file" do
-    File.exists? tf2
+    File.exists? File.open("#{File.dirname(__FILE__)}/testfile2")
     
   end
   
